@@ -1,0 +1,93 @@
+.add-item-container1 {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.form-group1 {
+    margin-bottom: 15px;
+}
+
+.form-group1 input{
+    height: 1rem;
+    width: 95%;
+}
+
+.form-group1 textarea{
+    height: 4rem;
+
+    width: 95%;
+}
+.form-control1 {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.form-control1:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.add-tag-button {
+    padding: 8px 12px;
+    margin-left: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-tag-button:hover {
+    background-color: #218838;
+}
+
+.tags-container {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: #e2e6ea;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.tag h2 {
+    margin-left: 8px;
+    cursor: pointer;
+    color: #dc3545;
+}
+
+.tag h2:hover {
+    color: #c82333;
+}
+
+.submit-button1 {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button1:hover {
+    background-color: #0056b3;
+}
+
+

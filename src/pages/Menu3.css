@@ -1,0 +1,149 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #f4f4f4; */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cards210 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cards-img0 {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+    width: 900px; /* Increased card width */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    display: flex;
+    justify-content: space-between;
+    padding-right: 40px;
+    align-items: center;
+    margin: 20px auto;
+height: 230px;
+
+}
+
+.cards-img0:hover {
+    transform: scale(1.05);
+}
+
+.imgg20 {
+    padding-top: 30px;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px; /* Ensure image corners match card corners */
+}
+
+.imgg20 img {
+    width: 90%;
+    height: 88%;
+    object-fit: cover;
+    display: block;
+}
+
+.cards-img0 h2 {
+    color: #333;
+    font-size: 1.4em; /* Increased font size */
+    margin: 15px 0; /* Increased margin */
+}
+
+.cards-img0 button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin: 15px 0; /* Increased margin */
+    padding: 12px 25px; /* Increased padding */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cards-img0 button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Filter buttons */
+.filter-section00{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.filter-buttons01
+.filter-section01 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.filter-buttons01 button,
+.filter-section01 button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+}
+
+.filter-buttons01 button:hover,
+.filter-section01 button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.filter-buttons01 button.active,
+.filter-section01 button.active {
+    background-color: #28a745;
+    transform: scale(1.05);
+}
+
+
+
+
+/* Pagination */
+.pagination0 {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination0 button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #007bff;
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.pagination0 button:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.pagination0 button.active {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.05);
+}
+

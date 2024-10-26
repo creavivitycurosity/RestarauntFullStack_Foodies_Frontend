@@ -1,0 +1,123 @@
+/* .horizontal-scroll-container {
+    display: flex;
+    align-items: center;
+    width: 600px;
+    height: 100px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    position: relative;
+  }
+  
+  .scroll-button {
+    width: 30px;
+    height: 100px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .scroll-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .buttons-container {
+    display: flex;
+    width: calc(100% - 60px);  Subtract the width of the scroll buttons 
+    height: 100px;
+    overflow: hidden;
+  }
+  
+  .item-button {
+    width: 100px;
+    height: 100px;
+    margin: 0 5px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  
+  .item-button:hover {
+    background-color: #ccc;
+  }
+   */
+   .horizontal-scroll-container {
+    display: flex;
+    align-items: center;
+    width: 730px;
+    height: 50px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 0;
+  }
+  
+  .scroll-button {
+    width: 100px;
+    height: 100px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .scroll-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .buttons-container {
+    display: flex;
+    width: calc(100% - 60px); /* Subtract the width of the scroll buttons */
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .buttons-slider {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .item-button {
+    width: 100px;
+    height: 100px;
+    margin: 0 5px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+  }
+  
+  .item-button:hover {
+    background-color: #ccc;
+  }
+  

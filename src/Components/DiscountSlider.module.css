@@ -1,0 +1,88 @@
+/* DiscountSlider.module.css */
+.sliderContainer {
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sliderItem {
+  text-align: center;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0 10px;
+  height: 355px;
+}
+
+.itemImage {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.discountBadge {
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.priceDetails {
+  margin: 10px 0;
+}
+
+.previousPrice {
+  text-decoration: line-through;
+  color: grey;
+  margin-right: 10px;
+}
+
+.currentPrice {
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.addToCart {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.addToCart:hover {
+  background-color: #45a049;
+}
+
+.noItems {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+
+.stock button{
+  background-color: #4caf50;
+
+
+}
+
+.stock button:hover{
+
+  background-color: #45a049;
+
+}

@@ -1,0 +1,28 @@
+/* CategoryDiscountItems.module.css */
+
+.itemsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .itemCard {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .itemCard img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .itemInfo {
+    margin-top: 10px;
+  }
+  

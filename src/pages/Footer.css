@@ -1,0 +1,169 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Footer Styles */
+.footer {
+    padding: 2rem 4rem;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: start;
+    margin-bottom: 1rem;
+}
+
+.top h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.top p {
+    font-size: 1rem;
+    margin: 0.5rem 0 0;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #1dbf73;
+}
+
+.email-subscription {
+    margin: 1rem 0;
+}
+
+.email-subscription h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.subscription-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subscription-box input {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    width: 250px;
+}
+
+.subscription-box button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #1dbf73;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subscription-box button:hover {
+    background-color: #17a967;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: start;
+    margin-top: 1rem;
+}
+
+.bottom div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.bottom h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.bottom a {
+    text-decoration: none;
+    color: #fff;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.bottom a:hover {
+    color: #1dbf73;
+}
+.top p{
+    color:#17a967
+   }
+@media screen and (max-width: 750px) {
+    .footer {
+        margin-top: 10vh;
+        padding: 2rem 1rem;
+    }
+
+    .top, .bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top h1, .top p {
+        text-align: center;
+    }
+
+    .social-icons a {
+        margin: 1rem 0.5rem 0 0.5rem;
+    }
+    #addres,#community{
+        display: none;
+    }
+
+
+    .bottom div {
+        width: 100%;
+        text-align: center;
+    }
+
+    .bottom div:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+    .subscription-box{
+        flex-direction: column;
+    }
+    .subscription-box button{
+        margin-top: 10px;
+    }
+
+    .bottom {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       flex-direction: row;
+       flex-wrap: nowrap;
+    }
+   .top p{
+    color:#17a967
+   }
+}

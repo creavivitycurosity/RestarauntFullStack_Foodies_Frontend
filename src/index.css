@@ -1,0 +1,206 @@
+/* In your index.css or App.css */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.signup-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .signup-container h3 {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .signup-container hr {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  
+  .signup-form {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .form-actions {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .form-actions button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .form-actions button.bt {
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+  }
+  
+ .form-actions button.bt a {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+   .form-actions button.bt a:hover {
+    color: #fff;
+    background-color: black;
+
+  } 
+
+  .signin-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .signin-header h3 {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .signin-form {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 40px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .form-actions {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .form-actions button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .form-actions button.bt {
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .form-actions button.bt a {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+  }
+  .seller-button{
+    display: flex;
+  }
+  .seller-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    
+  }
+  
+  .seller-button button.bt2 {
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .seller-button button.bt2 a {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+  }
+  @media (max-width: 768px) {
+    
+    .seller-button button.bt2 {
+        margin-left: 10px;
+        background-color: transparent;
+        border: none;
+        width: 120px;
+      }
+
+      .seller-button button.bt2 a {
+        padding: 10px 10px;
+        font-size: 15px;
+       
+      }
+      
+}

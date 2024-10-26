@@ -1,0 +1,54 @@
+.container {
+    max-width: 800px;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.item2 {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.item:hover {
+    background-color: #f0f0f0;
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+p {
+    margin-bottom: 10px;
+}
+.item button{
+    background-color: crimson;
+    color: white;
+    margin: 0px 44%;
+}
+
+@media (max-width: 768px) {
+
+.item2 h2{
+
+    font-size: 17px;
+}
+.item button{
+
+    margin: 0px 40%;
+}
+
+
+}

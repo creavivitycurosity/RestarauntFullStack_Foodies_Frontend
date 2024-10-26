@@ -1,0 +1,123 @@
+.cart-alert {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: 60%;
+    max-width: 400px;
+    background-color: rgba(90, 226, 122, 0.95); /* Modern green with transparency */
+    color: white;
+    text-align: center;
+    padding: 5px 2px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    font-weight: bold;
+    transition: top 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+    height: 9%;
+    overflow: hidden;
+    padding-bottom: 10px;
+
+}
+
+.cart-alert h4{
+    color: rgba(70, 70, 70, 1) !important;
+    }
+
+
+
+
+/* for 3 seconds */
+/* .cart-alert {
+    animation: slideIn 0.5s forwards, slideOut 0.5s forwards 2.5s;
+}
+
+
+
+@keyframes slideIn {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    100% {
+        top: 20px;
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        top: 20px;
+        opacity: 1;
+    }
+    100% {
+        top: -50px;
+        opacity: 0;
+    }
+} */
+
+
+.cart-alert {
+    animation: slideIn 0.5s forwards, slideOut 0.5s forwards 1.5s; /* Total of 2 seconds */
+}
+
+@keyframes slideIn {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    100% {
+        top: 20px;
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        top: 20px;
+        opacity: 1;
+    }
+    100% {
+        top: -50px;
+        opacity: 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .cart-alert {
+        position: fixed;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        width: 60%;
+        background-color: rgba(90, 226, 122, 0.95); /* Modern green with transparency */
+        color: white;
+        text-align: center;
+        padding: 5px 2px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-size: 0.7rem;
+        font-weight: bold;
+        transition: top 0.5s ease, opacity 0.5s ease;
+        opacity: 1;
+        height: 8%;
+        overflow: hidden;
+    }
+
+    @keyframes slideIn {
+        0% {
+            top: -50px;
+            opacity: 0;
+        }
+        100% {
+            top: 50px;
+            opacity: 1;
+        }
+    }
+
+}

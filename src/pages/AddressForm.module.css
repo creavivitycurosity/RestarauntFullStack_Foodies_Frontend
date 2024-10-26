@@ -1,0 +1,68 @@
+/* AddressForm.module.css */
+
+.addressForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .addressForm input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .addressForm button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .addressForm button:hover {
+    background-color: #45a049;
+  }
+  
+  .addressForm button[type="button"] {
+    background-color: #f44336;
+  }
+  
+  .addressForm button[type="button"]:hover {
+    background-color: #e53935;
+  }
+  
+  .addressForm button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .addressForm {
+      padding: 15px;
+      max-width: 100%;
+    }
+  
+    .addressForm input {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    .addressForm button {
+      font-size: 14px;
+    }
+  }
+  

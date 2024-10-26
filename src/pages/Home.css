@@ -1,0 +1,514 @@
+/* Home.css */
+.filter-container0 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  gap:10px;
+}
+
+.filter-container0 input[type="text"] {
+  width: 30%;
+  height: 30px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.filter-container0 select {
+  width: 40%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.filter-container0 input[type="text"]:focus,
+.filter-container0 select:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.filter-container0 label {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* Reset some default styles */
+body, h1, h2, div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Main container to add spacing at the top */
+.main-container {
+  margin-top: 14vh;
+}
+
+/* Welcome text styling */
+.welcomename1 {
+  width: 65%;
+  margin: 20px auto;
+  text-align: center;
+  /* font-size: 20px; */
+  color: #333;
+}
+
+/* Header section styling */
+.about-img2 {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+}
+
+.about-img2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text22 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+
+.text22 h2 {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Banner section styling */
+.banner {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.banner h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.banner p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #666;
+}
+
+/* Cards grid styling */
+.cards212 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 60px 50px;
+}
+
+.cards-img2 {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.cards-img2:hover {
+  transform: translateY(-10px);
+}
+
+.cards-img2 img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cards-img2 h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.cards-img2 button {
+  background-color: #ff7f50;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.cards-img2 button:hover {
+  background-color: #ff6347;
+}
+
+/* Slider section styling */
+.cardsslider {
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.cards-img14 {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.cards-img14:hover {
+  transform: translateY(-10px);
+}
+
+.cards-img14 img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.a14 img{
+  height: 190px;
+
+}
+.cards-img14 h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.cards-img14 button {
+  background-color: #48d1cc;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.cards-img14 button:hover {
+  background-color: #40bfbf;
+}
+
+/* Slick slider custom arrow styling */
+.slick-arrow {
+  z-index: 1;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.slick-prev, .slick-next {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+.slick-prev:hover, .slick-next:hover {
+  background-color: #444;
+}
+
+.slick-dots li button:before {
+  color: #000;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #ff6347;
+}
+
+/* Reviews slider styling */
+.reviews-slider {
+  padding: 50px 20px;
+}
+
+.reviews-slider h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.review {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.review h3 {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Footer styling */
+.footer {
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+/* .... */
+.scards{
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+}
+.cards-img2 {
+  position: relative; /* Ensure the discount badge is positioned relative to the item card */
+  overflow: hidden; /* Prevents badge from being clipped */
+  height: 380px;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 10; /* High z-index to stay on top */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+/* 
+@media (max-width: 768px) {
+
+
+.filter-container0 {
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 0 10px;
+  margin-top: 0;
+}
+
+.filter-container0 input {
+  width: 120%;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.filter-container0 .multi-select3 {
+  width: 60%; 
+}
+
+.filter-container0 .multi-select3 option{
+  width: 20px; 
+}
+
+
+} */
+
+/* Home.css */
+
+.cards212 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Default for larger screens */
+  gap: 16px; /* Space between items */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+/* Mobile styles */
+@media (max-width: 768px) {
+  .cards212 {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 8px; /* Smaller gap for mobile */
+    width: 100%;
+    margin: 0px;
+    height:17%;
+  }
+  .c212{
+    padding-right: 0px;
+  }
+  .cards212 h2,h3,span{
+font-size: 15px;
+
+  }
+  
+  .cards-img2 img{
+    height: 40%;
+    width: 80%;
+  }
+
+  .cards212 div button{
+
+padding: 12px;
+font-size: 12px;
+  }
+    .cards-img2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    width: 100%; /* Full width for items */
+    height: 92%; /* Auto height for images */
+    padding: 10px; /* Padding around items */
+    transition: transform 0.2s; /* Smooth scale transition */
+    overflow: hidden;
+    
+  }
+  .stock h3{
+display: none;
+position: absolute;
+  }
+  .res{
+    display: none;
+position: absolute;
+  }
+  .bstock{
+    padding: 12px;
+font-size: 12px;
+  }
+.dispirice{
+  font-size: 13px
+}
+.orgprice{
+  font-size: 13px
+
+}
+  .cards-img2:hover {
+    transform: scale(1.05); /* Scale up on hover */
+  }
+
+  /* .cards-img2 img {
+height: 140px;
+  } */
+  .about-img2 img{
+
+    height: 90%;
+  }
+
+  .about-img2{
+    height:  48vh;
+  }
+
+}
+
+/* Other styles can remain the same */
+@media (max-width: 1699px) and (min-width: 1200px) {
+  body {
+    font-size: 10px; /* Default font size */
+  }
+  .cards-img2 h2,h3{
+    font-size: 13px; /* Default font size */
+
+
+  }
+  .cards-img2 img{
+height: 50%;
+
+  }
+
+}
+
+@media (max-width:1100px ) and (min-width: 800px) {
+
+  .cards212 {
+    grid-template-columns: repeat(3, 1fr) !important; /* 2 columns on mobile */
+    font-size: 12px !important;
+  }
+  .cards-img2{
+
+  height: 370px !important;
+  width: 250px !important;
+  }
+  .cards-img2 img{
+
+    height: 150px !important;
+    
+    }
+    .cards-img2 h2{
+
+      font-size: 16px !important;
+      
+      }
+      .cards-img14 img{
+
+        height: 150px !important;
+        width: 300px !important;
+        }
+}
+
+
+@media (max-width:799px ) and (min-width: 769px) {
+
+
+
+  .cards212 {
+    grid-template-columns: repeat(3, 1fr) !important; /* 2 columns on mobile */
+    font-size: 12px !important;
+  }
+  .cards-img2{
+
+  height: 370px !important;
+  width: 200px !important;
+  }
+  .cards-img2 img{
+
+    height: 150px !important;
+    
+    }
+    .cards-img2 h2{
+
+      font-size: 16px !important;
+      
+      }
+      .cards-img14 img{
+
+        height: 150px !important;
+        width: 300px !important;
+        }
+
+
+
+}

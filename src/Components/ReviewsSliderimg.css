@@ -1,0 +1,136 @@
+.review-slider {
+    margin: 2rem 0;
+    position: relative;
+    padding: 0 2rem; /* Added padding to make room for arrows */
+  }
+  
+  .review-slider h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  .slide {
+    padding: 1rem;
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .slide img {
+    width: 270px;
+    height: 140px;
+    border-radius: 50%;
+    margin: auto 32%;
+    margin-bottom: 1rem;
+
+  }
+  
+  .slide p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Custom Arrow Styles */
+  .custom-prev, .custom-next {
+    background: #1dbf73;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    position: absolute;
+    top: calc(50% - 20px); /* Adjusted to move up */
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+  
+  .custom-prev {
+    left: 1rem;
+  }
+  
+  .custom-next {
+    right: 1rem;
+  }
+  
+  .custom-prev:hover, .custom-next:hover {
+    background: #17a967;
+    color: #000;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 50%;
+  }
+  
+  /* Override slick default styles */
+  .slick-prev:before, .slick-next:before {
+    background: #17a967;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+  }
+  
+  /* Ensure the arrow buttons are aligned correctly */
+  .custom-prev, .custom-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
+/* Media query for mobile devices */
+@media only screen and (max-width: 768px) {
+  .review-slider {
+    margin: 1rem 0;
+    padding: 0 1rem;
+  }
+   
+  .slide {
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    gap: 20px;
+    height: 250px;
+  }
+  
+  .slide img {
+    width: 150px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto 25%;
+    margin-bottom: 25px;
+
+  }
+  
+  .slide p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+
+@media (max-width:799px ) and (min-width: 769px) {
+
+
+  .slide img {
+    width: 200px;
+ 
+  }
+  
+}

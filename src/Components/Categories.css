@@ -1,0 +1,144 @@
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .category-card {
+    position: relative;
+    width: 240px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .category-name {
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+  }
+
+
+.category-card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+
+
+
+.category-card-content {
+    position: relative;
+    z-index: 1; /* Ensures content appears above overlay */
+    color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+/* Center the loader on the screen */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Adjust height as needed */
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1.5s linear infinite;
+}
+
+
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  flex-wrap: wrap; /* Allow wrapping of pagination buttons */
+
+}
+
+.pagination li {
+  margin: 0 10px;
+
+}
+
+.pagination button {
+  padding: 10px 15px;
+  border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination .active button {
+  background-color: #007bff;
+  color: white;
+}
+/* Add spin animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.offcontainer {
+  max-width: 1200px;
+  margin: 60px auto;  /* Center the container with margin */
+  padding: 40px;      /* Inner padding for spacing */
+  background-color: #fff;  /* White background for the box */
+  border-radius: 12px;     /* Rounded corners for smooth effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition */
+}
+
+/* Hover effect to make the container "lift" slightly */
+.offcontainer:hover {
+  transform: translateY(-10px);   /* Lift up slightly */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);  /* Darker shadow on hover */
+}
+.offcontainer2 {
+  max-width: 1200px;
+  margin: 40px auto;  /* Center the container with margin */
+  padding: 40px;      /* Inner padding for spacing */
+  background-color: #fff;  /* White background for the box */
+  border-radius: 12px;     /* Rounded corners for smooth effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition */
+}
+
+/* Mobile Responsive adjustments */
+@media (max-width: 768px) {
+  .pagination {
+      justify-content: center !important; /* Align buttons to the start */
+      overflow-x: auto; /* Allow horizontal scrolling */
+      padding: 10px; /* Add padding */
+      white-space: nowrap; /* Prevent line breaks */
+      flex-wrap: wrap;
+  }
+
+  .pagination button {
+      min-width: 40px; /* Set a minimum width for buttons */
+  }
+}

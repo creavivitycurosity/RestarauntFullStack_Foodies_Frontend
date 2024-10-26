@@ -1,0 +1,222 @@
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Container for the whole component */
+.order-status-segregation {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .order-status-segregation {
+    grid-template-columns: 1fr; /* Single-column layout on mobile */
+  }
+}
+
+/* Filters Container */
+.filters-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .filters-container {
+    padding: 15px;
+  }
+}
+
+/* Filter Sections */
+.filter-section3,
+.filter-section2,
+.filter-section-custom {
+  margin-bottom: 20px;
+}
+
+.filter-section3 h2,
+.filter-section2 h2,
+.filter-section-custom h2 {
+  font-size: 1.2rem;
+  color: #007bff;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f1f1f1;
+}
+
+.filter-section3 button,
+.filter-section2 button,
+.filter-section-custom button {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-section3 button.active,
+.filter-section2 button.active,
+.filter-section-custom button.active {
+  background-color: #0056b3;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Search Bar */
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 100%;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Order List Container */
+.order-list-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .order-list-container {
+    padding: 15px;
+  }
+}
+
+/* Order List Styling */
+.order-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-list li {
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.order-list li:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.order-list h2 {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.order-list p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Order Items List */
+.order-items {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.order-items li {
+  margin: 5px 0;
+  padding: 5px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Update Status Button */
+.order-list button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.order-list button:hover {
+  background-color: #218838;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button.active {
+  background-color: #0056b3;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile Specific Adjustments */
+@media (max-width: 768px) {
+  .order-list li {
+    padding: 15px;
+  }
+
+  .order-list p,
+  .order-list h2,
+  .order-list li span h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+  }
+
+  .order-list ul li p {
+    margin-left: 0;
+    font-size: 0.95rem;
+  }
+
+  .order-list li span h2 {
+    margin: auto;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .pagination button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}

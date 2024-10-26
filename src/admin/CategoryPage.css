@@ -1,0 +1,22 @@
+.category-page-container {
+    padding-right: 20px;
+  }
+  
+  .items-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .item-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    width: 330px;
+    text-align: center;
+  }
+  
+  .item-image {
+    width: 100%;
+    height: auto;
+  }
+  

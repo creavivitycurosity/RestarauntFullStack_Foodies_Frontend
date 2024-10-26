@@ -1,0 +1,329 @@
+/* General layout for the Cart Page */
+.cart-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the page covers the full viewport height */
+  padding: 20px;
+  background-color: #f4f4f4; /* Soft background for better contrast */
+}
+
+.cpage {
+  flex-grow: 1; /* Allows the content to grow and push footer down */
+  background-color: #fff; /* Cart content background */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Cart Title */
+.cartname {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Empty cart styling */
+.new-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  color: #777;
+}
+
+.new-cart h2 {
+  margin: 0 10px;
+}
+
+/* Clear Cart Button */
+.ps {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ps:hover {
+  background-color: #c82333;
+}
+
+/* Cart Items */
+.cartitems {
+  margin-top: 30px;
+}
+
+.cartitems ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Improved Layout for Desktop: Images Larger, Items Compact */
+.cartitems ul li {
+  display: flex;
+  justify-content: space-evenly; /* Align items to the left */
+  align-items: center;
+  padding: 15px 10px; /* Reduced padding for a tighter layout */
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0; /* Separates items */
+  transition: background-color 0.2s ease;
+  height: 180px;
+}
+
+.cartitems ul li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Cart Image */
+.cart-img {
+  width: 230px; /* Increased image size for desktop */
+  margin-right: 20px;
+
+}
+
+.cart-img img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  height: 150px;
+}
+
+.cart-img img:hover {
+  transform: scale(1.05);
+}
+
+/* Cart Item Details */
+.cartdiv h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+text-align: left;
+}
+
+.cartdiv h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.cartdiv {
+  flex: 1; /* Allow text to grow */
+}
+
+/* Action buttons for quantity and remove */
+.action-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}
+
+.remove-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+  background-color: #c82333;
+}
+
+/* Coupon Section */
+.coupon-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.coupon-section input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 60%;
+}
+
+.coupon-section button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.coupon-section button:hover {
+  background-color: #218838;
+}
+
+/* Total Section */
+.total {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.checkout-button {
+  width: 200px;
+  height: 50px;
+  background-color: #17a2b8;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 20px auto;
+}
+
+.checkout-button:hover {
+  background-color: #2dacc0;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  /* Resize cart image for mobile */
+  .cart-img {
+    width: 100px;
+  }
+
+  .cartname {
+    font-size: 22px;
+  }
+
+  .cartitems ul li {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .coupon-section input {
+    width: 80%;
+  }
+
+  .checkout-button {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+  .cart-page-wrapper {
+   
+    min-height: 10vh; /* Ensures the page covers the full viewport height */
+   
+  }
+  
+  .cpage {
+    flex-grow: 1; /* Allows the content to grow and push footer down */
+
+  }
+  .cart-img img{
+    width: 220px;
+    height: 100px;
+  }
+.remove-button{
+  margin-top: 10px;
+}
+.cartitems ul li {
+height: 330px;
+}
+.cartdiv h1 {
+
+text-align: center;
+}
+}
+.modal {
+  position: fixed; /* Fixed position to overlay the modal */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust positioning */
+  background-color: white; /* Background color */
+  padding: 20px; /* Padding around the content */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Box shadow for depth */
+  z-index: 1000; /* Ensure it appears above other content */
+  max-width: 400px; /* Maximum width of the modal */
+  width: 100%; /* Full width on smaller screens */
+}
+
+.modal h2 {
+  margin-top: 0; /* Remove default margin at the top */
+}
+
+.modal div {
+  margin-bottom: 15px; /* Space between address options */
+}
+
+.modal label {
+  margin-left: 10px; /* Space between radio button and label */
+  cursor: pointer; /* Pointer cursor for label */
+}
+
+.modal button {
+  background-color: #007BFF; /* Button color */
+  color: white; /* Text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 15px; /* Padding inside button */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s; /* Transition effect for hover */
+}
+
+.modal button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Optional: Overlay behind the modal */
+.modal-overlay {
+  position: fixed; /* Fixed position for the overlay */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 999; /* Below the modal */
+}
+.close-button {
+  position: absolute; /* Position it in the top right */
+  top: 10px;
+  right: 10px;
+  background: none; /* No background */
+  border: none; /* No border */
+  font-size: 20px; /* Font size */
+  cursor: pointer; /* Pointer cursor */
+  background-color: #dc3545 !important;
+}
+
+.close-button:hover {
+  background-color: #c54350 !important;
+
+}

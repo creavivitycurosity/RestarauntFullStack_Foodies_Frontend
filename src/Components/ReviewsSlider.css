@@ -1,0 +1,80 @@
+.reviews-slider {
+    margin: 2rem 0;
+    position: relative;
+    padding: 0 2rem; /* Added padding to make room for arrows */
+}
+
+.reviews-slider h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.review {
+    padding: 1rem;
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.review p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.review h5 {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Custom Arrow Styles */
+.custom-prev, .custom-next {
+    background: #1dbf73;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.custom-prev {
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+
+.custom-next {
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.custom-prev:hover, .custom-next:hover {
+    background: #17a967;
+}
+
+/* Override slick default styles */
+.slick-prev:before, .slick-next:before {
+color: #e7dada;
+top: 50px;
+}
+
+/* Ensure the arrow buttons are aligned correctly */
+.custom-prev, .custom-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}

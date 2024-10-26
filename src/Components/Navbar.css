@@ -1,0 +1,899 @@
+/* nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: burlywood;
+    border-radius: 15px;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    height: 12vh;
+}
+
+.logo img {
+    width: 20vh;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 2.1rem;
+    margin-bottom: 0;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    display: inline-flex;
+    font-size: large;
+    text-decoration: none;
+    color: black;
+    padding: 1.5rem;
+    margin: 0.0rem;
+    border-radius: 15%;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+nav ul li a:hover::after {
+    display: block;
+    background-color: #fff;
+}
+
+button {
+    color: black;
+    padding: 5px 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+button:hover {
+    color: #fff;
+    background-color: black;
+}
+
+input {
+    height: 30px;
+    border-radius: 5px;
+}
+
+.btext {
+    width: 90px;
+    height: 35px;
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+}
+
+.suggestions {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    width: calc(100% - 105px); 
+    top: 40px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.suggestions li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+  .highlight {
+    color: rgb(9, 255, 0);
+    font-weight: bold;
+  }
+   */
+
+/* Add your existing CSS styles here */
+/* Navbar.css */ 
+.navbar {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 1;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.category-item {
+  position: relative;
+  padding: 8px 16px;
+  border: none;
+
+}
+
+.sub-dropdown-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  z-index: 1;
+padding: 10px 14px;
+
+}
+
+.sub-dropdown-content div{
+ padding: 12px 20px;
+border: 1px solid black;
+ background-color: #f0f0f0;
+ color: #0a0a0a;
+ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+ margin-bottom: 10px;
+
+}
+.sub-dropdown-content div:hover{
+  padding: 12px 20px;
+  background-color: #555;
+ color: white;
+ border-radius: 5px;
+ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+ }
+
+.category-item:hover .sub-dropdown-content {
+  display: block;
+}
+
+
+   /* .............................. */
+   
+   nav {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    background-color: #ffdbac;
+    /* background-color: black !important; */
+    border-radius: 15px;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    height: 12vh;
+    padding: 0 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .logo img {
+    width: 20vh;
+    height: 10vh;
+  }
+  
+  nav ul {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 2.1rem;
+    margin-bottom: 0;
+  }
+  
+  nav ul li {
+    list-style: none;
+    position: relative;
+  }
+  
+  nav ul li a {
+    display: inline-flex;
+    font-size: large;
+    text-decoration: none;
+    color: #333;
+    /* color: white !important; */
+
+    padding: 1.0rem;
+    margin: 0.0rem;
+    border-radius: 15%;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #fff;
+  }
+  
+  button {
+    color: #333;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  button:hover {
+    color: #fff;
+    background-color: #333;
+  }
+  
+  input {
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+  }
+  
+  .btext {
+    width: 90px;
+    height: 38px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s;
+    position: relative;
+    right: 10px;
+  }
+  
+  .btext:hover {
+    background-color: #555;
+  }
+  
+  .search-container {
+    position: relative;
+    width: 100%;
+  }
+/* Container for the suggestions list */
+.suggestions {
+  list-style-type: none; /* Remove default bullet points */
+  margin: 10px 0; /* Space between the suggestions list and other content */
+  padding: 0; /* Remove default padding */
+  width: 80%; /* Full width of the parent container */
+  max-height: 300px; /* Limit the height of the suggestions list */
+  overflow-y: auto; /* Scroll when suggestions exceed the height */
+  background-color: #fff; /* White background for contrast */
+  border: 1px solid #ccc; /* Light border around suggestions */
+  border-radius: 8px; /* Slight rounding for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: max-height 0.3s ease; /* Smooth transition for height changes */
+  z-index: 1000; /* Make sure it appears above other content */
+  position: absolute; /* Positioned relative to the parent search container */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual suggestion item */
+.suggestions li {
+  display: flex; /* Flexbox to align image and text horizontally */
+  align-items: center; /* Vertically center content */
+  padding: 10px; /* Space inside each suggestion */
+  cursor: pointer; /* Pointer cursor to indicate clickability */
+  border-bottom: 1px solid #f0f0f0; /* Light divider between suggestions */
+  background-color: #fff; /* Ensure background remains white */
+  transition: background-color 0.2s ease-in-out; /* Smooth hover effects */
+  width: 90%;
+  justify-content: space-around;
+  padding-left: 40px;
+}
+
+/* Last item should not have a bottom border */
+.suggestions li:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect on suggestion */
+.suggestions li:hover {
+  background-color: #f5f5f5; /* Light gray background on hover */
+}
+
+/* Image inside the suggestion */
+.suggestions li img.simage {
+  width: 50px; /* Set image width */
+  height: 50px; /* Set image height */
+  object-fit: cover; /* Ensure image covers the area without distortion */
+  border-radius: 8px; /* Slight rounding for images */
+  margin-right: 15px; /* Space between the image and text */
+}
+
+/* Suggestion text content */
+.suggestions li div {
+  display: flex;
+  flex-direction: column; /* Stack name and details vertically */
+  justify-content: space-between;
+}
+
+/* Suggestion name */
+.suggestions li h3 {
+  font-size: 16px; /* Slightly larger font for name */
+  margin: 0 0 4px 0; /* Margin below the name */
+  color: #333; /* Darker text color for name */
+  font-weight: 500; /* Medium weight for modern look */
+}
+
+/* Restaurant or seller name */
+.suggestions li h5 {
+  font-size: 14px; /* Slightly smaller for secondary info */
+  margin: 0; /* Remove margin */
+  color: #777; /* Lighter text color */
+}
+
+/* Pricing info */
+.suggestions li .price-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #28a745; /* Green color for pricing */
+}
+
+/* Discount price */
+.suggestions li .price-info span[style*="text-decoration"] {
+  color: #ff6347; /* Red color for discounts */
+}
+
+/* Scrollbar customization */
+.suggestions::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.suggestions::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light background for scrollbar track */
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+  background: #888; /* Darker background for scrollbar thumb */
+  border-radius: 10px; /* Rounded scrollbar */
+}
+
+.suggestions::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color when hovered */
+}
+
+  
+  .highlight {
+    color:skyblue;
+    font-weight: bold;
+  }
+  
+  /* ......... */
+
+  /* Basic styles for dropdown */
+  .dropdowns {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-contents {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .dropdowns:hover .dropdown-contents {
+    display: block;
+    opacity: 1;
+  }
+  
+  .category-itemss {
+    padding: 20px 30px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative; /* Ensure position relative for containing the sub-dropdown */
+  }
+  
+  .category-itemss:hover {
+    background-color: #b8b5b5;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+
+  }
+  
+  .sub-dropdown-contents {
+    display: none;
+    position: absolute;
+    top: -10%; /* Position below the category-itemss */
+    left:  101%; /* Align to the left edge of category-itemss */
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    padding: 10px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-10px); /* Smoothly slide in from above */
+    white-space: nowrap; /* Prevents text wrapping */
+
+  }
+  
+  .category-itemss:hover .sub-dropdown-contents {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Slide in */
+  }
+  
+  .sub-dropdown-contents div {
+    padding: 20px 30px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .sub-dropdown-contents div:hover {
+    background-color: #474747;
+    color: #faf4f4;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+
+  }
+.ss{
+  position: relative;
+  right: 25px;
+  top: 1px;
+}
+
+.sa{
+  height: 40px;
+}
+.scart{
+  position: relative;
+  top:-55px;
+  left: 110px;
+}
+  /* ........ */
+
+  
+  .simage{
+    height: 70px;
+    width: 70px;
+  }
+  .suggestions li{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2px;
+    border-bottom: #333 solid;
+  }
+  .suggestions li:hover{
+  background-color:  #bdb9b9;
+  }
+  .suggestions li img{
+    padding-top:20px;
+
+  }
+  .search-containers{
+
+    width: 300px;
+    margin-right: 20px;
+    display: none;
+  }
+
+  
+
+@media (max-width: 600px) {
+  nav{
+
+    width: 100%;
+    height: 100px;
+    
+  }
+  .search-containers{
+
+    width: 300px;
+    margin-right: 20px;
+    display: block;
+    margin-left: 20px
+
+  }
+  
+  .btext {
+    width: 90px;
+    height: 38px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s;
+    position: relative;
+    top: -5px;
+  }
+
+  .search-container{
+
+    width: 340px;
+    margin-right: 20px;
+    display: none;
+  }
+  nav ul {
+    position: absolute;
+    top: -4px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    text-align: center;
+    background-color: #ffdbac;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  nav ul h2{
+display: none;
+  }
+  nav ul li {
+    padding-top: 0;
+  }
+  .menuu{
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+    position: fixed;
+    top: 17px;
+    padding-left: 20px;
+  }
+
+  .ss{
+    display: none;
+  }
+  #menuList {
+    transition: all 0.5s;
+  }
+}
+
+/* Styles for the navbar */
+.navbar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav-item {
+  position: relative;
+  margin-right: 20px;
+}
+
+.nav-item .profile-link {
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 40px; /* Adjust depending on the height of your nav */
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  list-style-type: none;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown li {
+  padding: 8px 0;
+}
+
+.dropdown li a,
+.dropdown li button {
+  text-decoration: none;
+  color: black;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown li button:hover,
+.dropdown li a:hover {
+  background-color: lightgray;
+  width: 90%;
+border-radius: 12px;
+}
+
+/* Show dropdown on hover */
+.nav-item:hover .dropdown {
+  display: block;
+}
+.logoutButton {
+  /* padding: 20px; */
+  /* width: 50px; */
+  /* height: 60px; */
+  /* background-color: orange; */
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px; /* Larger text */
+ /* font-weight: bold;  Make text bold */
+  border: none;
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: rgb(15, 15, 14); /* Change background color on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+  color:white
+}
+/* Navbar styles */
+
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+
+.search-bar button:hover {
+  background-color: #555;
+}
+.selle-ques{
+  display: none;
+}
+
+
+ul .nav-menu {
+width: 150%;
+}
+.sub-dropdown-contents {
+
+  scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.sub-dropdown-contents::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.sub-dropdown-contents::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+.sub-dropdown-contents::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar color */
+  border-radius: 10px; /* Rounded corners for modern look */
+  border: 2px solid #f1f1f1; /* Adds padding inside the scrollbar thumb */
+}
+
+.sub-dropdown-contents::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color when hovering */
+}
+
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block !important;
+    color: #333;
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    width: 90% !important;
+  }
+
+
+  .menu-icon span{
+    margin-right: auto; /* This ensures the left item stays at the left */
+
+  }
+
+  .menu-icon h2{
+    
+    margin: 0 auto !important; /* This will center the second item */
+
+  }
+.spacer{
+  margin-left: 27%;
+}
+
+  .selle-ques{
+    display: block;
+  }
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffdbac;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    display: none;
+    transition: all 0.3s ease;
+    padding-right: 20%;
+  }
+ .dropdown{
+  max-height: 150px; /* Set a fixed height for the dropdown */
+  overflow-y: auto; /* Enable vertical scrolling when content exceeds the height */
+ }
+  .nav-menu.active {
+    display: flex;
+    margin-right: 20%;
+  }
+
+
+  .search-bar {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .suggestions{
+    top: 100px;
+    left:20px
+  }
+
+  #foodify{
+    display: none;
+  }
+  .icon{
+    display: none;
+  }
+
+  .d-flex{
+    width: 100% !important;
+    margin: 0 auto !important; /* This will center the second item */
+    margin-top: 40px !important;
+  }
+  .search-containers{
+    display: flex !important;
+    justify-content: center !important;
+    width: 100vw !important;
+    margin: 0 auto !important; /* This will center the second item */
+
+  }
+}
+@media (max-width: 1699px) and (min-width: 1200px) {
+  body {
+    font-size: 16px; /* Default font size */
+  }
+  
+  form input{
+    width: 15rem;
+    height: 4rem;
+  }
+  .nav-nav ul li a {
+    padding: 5px;
+    margin: 5px;
+    font-size: 13px; /* Default font size */
+
+  }
+
+
+  .nav-item-profile-link{
+    padding: 5px;
+    margin: 6px;
+
+  }
+  .nav-item .profile-link{
+    padding: 5px;
+    font-size: 15px; /* Default font size */
+
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 20px; /* Adjust depending on the height of your nav */
+    
+  }
+  .btext{
+    position: relative;
+    right: 17px;
+width: 55px;
+padding-left: 4px;
+font-size: 14px;
+  }
+  .logoutButton{
+    padding: 4px;
+    margin: 3px;
+font-size: 13px;
+  }
+  /* form{
+    width: 304px;
+  } */
+.profile{
+  font-size: 12px;
+}
+.profile{
+  font-size: 12px;
+}
+.logoutButton{
+  font-size: 12px;
+  padding-bottom: 9px;
+}
+
+}
+@media (max-width:1100px ) and (min-width: 800px) {
+  nav {
+    background-color: #ffdbac !important;
+  }
+  .profile{
+    font-size: 12px;
+    padding-bottom: 6px;
+  }
+  .logoutButton{
+    font-size: 12px;
+    padding-bottom: 9px;
+  }
+
+  .nav-nav ul li a{
+    font-size: 10px !important;
+    padding: 0.7rem !important;
+  }
+
+  .d-flex input{
+    width: 10rem !important;
+  }
+  .d-flex{
+    display: flex !important;
+  }
+  .d-flex button{
+    margin-left: 15px;
+    width: 4rem !important;
+  }
+
+  .dropdowns{
+    display: none !important;
+  }
+}
+
+@media (max-width:799px ) and (min-width: 769px) {
+
+  nav {
+    background-color: #ffdbac !important;
+  }
+
+  .nav-nav ul li a{
+    font-size: 10px !important;
+    padding: 0.7rem !important;
+  }
+
+  .d-flex input{
+    width: 8rem !important;
+    height: 2rem !important;
+  }
+  .d-flex{
+    display: flex !important;
+  }
+  .d-flex button{
+    margin-left: 15px;
+    width: 4rem !important;
+    height: 2rem !important;
+
+  }
+
+  .dropdowns{
+    display: none !important;
+  }
+
+}

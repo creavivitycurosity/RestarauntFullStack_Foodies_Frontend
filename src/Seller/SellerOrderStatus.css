@@ -1,0 +1,241 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+  
+  /* Container for the whole component */
+  .order-status-segregation {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .order-status-segregation {
+      grid-template-columns: 1fr; /* One column layout on mobile */
+    }
+  }
+  
+  /* Filters Container */
+  .filters-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  /* Filter Sections */
+  .filter-section3,
+  .filter-section2,
+  .filter-section-custom {
+    margin-bottom: 20px;
+  }
+  
+  .filter-section3 h2,
+  .filter-section2 h2,
+  .filter-section-custom h2 {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #007bff;
+    padding: 10px 0;
+    border-bottom: 2px solid #f1f1f1;
+    transition: all 0.3s ease;
+  }
+  
+  /* Accordion active class */
+  .filter-section3.active h2,
+  .filter-section2.active h2,
+  .filter-section-custom.active h2 {
+    color: #0056b3;
+  }
+  
+  .filter-section3 button,
+  .filter-section2 button,
+  .filter-section-custom button {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .filter-section3 button.active,
+  .filter-section2 button.active,
+  .filter-section-custom button.active {
+    background-color: #0056b3;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .search-bar h2 {
+    font-size: 1.2rem;
+    color: #007bff;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    width: 93%;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Order List Container */
+  .order-list-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Order List Styling */
+  .order-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .order-list li {
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .order-list li:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-list h2 {
+    font-size: 1.2rem;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .order-list p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  /* Order Items List */
+  /* Order List Styling */
+  .order-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .order-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .order-item h2 {
+    color: #007bff;
+  }
+  
+  .order-item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .order-item-details span {
+    font-size: 1rem;
+  }
+  
+  .order-item-details button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .no-orders {
+    text-align: center;
+    color: #666;
+    margin: 20px;
+  }
+  
+  /* Button for Updating Order Status */
+  .order-list button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .order-list button:hover {
+    background-color: #218838;
+  }
+  
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination button.active {
+    background-color: #0056b3;
+  }
+  
+  .pagination button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Mobile Specific Adjustments */
+  @media (max-width: 768px) {
+    .filters-container {
+      margin-bottom: 20px;
+    }
+    
+    .order-list-container {
+      padding: 15px;
+    }
+  
+    .pagination button {
+      padding: 8px 15px;
+    }
+
+  }
+  

@@ -1,0 +1,298 @@
+/* OfferedItemsAndCategories.module.css */
+/* .container {
+    padding: 20px;
+    background-color: #f8f8f8;
+  }
+  
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .gridItem {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .itemImage {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .discountInfo {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  
+  .priceDetails {
+    margin: 10px 0;
+  }
+  
+  .previousPrice {
+    text-decoration: line-through;
+    color: grey;
+    margin-right: 10px;
+  }
+  
+  .currentPrice {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .sliderItem {
+    padding: 10px;
+  }
+  
+  .categoryCard {
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .categoryInfo {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  .categoryName {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .discountBadge {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+   */
+
+   /* OfferedItemsAndCategories.module.css */
+/* OfferedItemsAndCategories.module.css */
+
+/* Categories Slider */
+.categoriesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  background-color: #f5f5f5;  }
+  
+  .categoriesSlider {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+  }
+  
+  .categoryCard {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    color: white;
+  }
+  
+  .categoryName {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;  }
+
+  .categoryCard:hover {
+    transform: scale(1.05);
+  }
+  
+  
+  .discountInfo {
+    margin-top: 5px;
+  font-size: 14px;
+  color: #ffeb3b; /* Bright yellow to highlight discount */
+  }
+  
+  /* Discounted Items Grid */
+  .itemsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 2 columns */
+    grid-template-rows: repeat(2, 1fr);     /* 2 rows */
+    gap: 20px;                             /* Space between grid items */
+    margin: 0 auto;
+    padding: 10px;
+    padding-left: 10%;
+  }
+  .itemCard {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;  /* Make the card take up full width of grid cell */
+    height: 380px; /* Ensure the card height adjusts dynamically */
+    /* max-width: 400px; */
+     /* Set a maximum width to control item size */
+  }
+  
+  .itemCard img {
+    width: 100%;
+    height: 220px;  /* Adjusted height for uniformity */
+    object-fit: cover;  /* Ensure image covers the space without distortion */
+    border-radius: 5px;
+  }
+  
+  .itemInfo {
+    margin-top: 10px;
+  }
+  
+  .itemInfo h3 {
+    margin: 10px 0;
+    font-size: 14px; /* Adjust font size */
+    font-weight: bold;
+  }
+  
+  .itemInfo p {
+    margin: 5px 0;
+    font-size: 12px; /* Adjust font size */
+  }
+
+  /* OfferedItemsAndCategories.module.css */
+
+  .offcontainer {
+    max-width: 1200px;
+    margin: 60px auto;  /* Center the container with margin */
+    padding: 40px;      /* Inner padding for spacing */
+    background-color: #fff;  /* White background for the box */
+    border-radius: 12px;     /* Rounded corners for smooth effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition */
+  }
+  
+  /* Hover effect to make the container "lift" slightly */
+  .offcontainer:hover {
+    transform: translateY(-10px);   /* Lift up slightly */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);  /* Darker shadow on hover */
+  }
+  .offcontainer2 {
+    max-width: 1200px;
+    margin: 40px auto;  /* Center the container with margin */
+    padding: 40px;      /* Inner padding for spacing */
+    background-color: #fff;  /* White background for the box */
+    border-radius: 12px;     /* Rounded corners for smooth effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition */
+  }
+
+.categoriesContainers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+.categoryCards {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.categoryCards:hover {
+  transform: scale(1.05);
+}
+
+.categoryNames {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.discountInfos {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #ffeb3b; /* Bright yellow to highlight discount */
+}
+
+.disitems {
+  display: none;
+
+}
+@media (max-width: 768px) {
+  .disitems {
+    display: none;
+ 
+  }
+ 
+}
+
+/* Center the loader on the screen */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Adjust height as needed */
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1.5s linear infinite;
+}
+
+/* Add spin animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,105 @@
+/* General container for the users list */
+.user-list-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Filter section for checkboxes */
+/* Unique ID for the filter section */
+#user-table-filter-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#user-table-filter-section .labelq {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #333;
+}
+
+#user-table-filter-section input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+/* Card layout for users */
+.user-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.user-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.user-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.user-card h3 {
+    font-size: 1.1rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.user-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    border: 1px solid #007bff;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination .active button {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+    .user-card-container {
+        grid-template-columns: 1fr; /* Single-column layout for mobile */
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

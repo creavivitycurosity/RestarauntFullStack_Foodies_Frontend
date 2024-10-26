@@ -1,0 +1,163 @@
+/* Container for the whole component */
+.user-table-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Filter section for checkboxes */
+/* Unique ID for the filter section */
+#user-table-filter-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#user-table-filter-section .labelq {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #333;
+}
+
+#user-table-filter-section input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+/* User card layout */
+.user-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.user-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.user-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* User info inside card */
+.user-info p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+/* Actions (buttons) inside user card */
+.user-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.toggle-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-btn.enabled {
+    background-color: orange;
+    color: black;
+}
+
+.toggle-btn.disabled {
+    background-color: grey;
+    color: white;
+}
+
+.delete-btn {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    flex-wrap: wrap; /* Allow wrapping of pagination buttons */
+
+}
+
+.pagination li {
+    margin: 0 10px;
+
+}
+
+.pagination button {
+    padding: 10px 15px;
+    border: 1px solid #007bff;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination .active button {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Mobile Responsive adjustments */
+@media (max-width: 768px) {
+    .user-card-container {
+        grid-template-columns: 1fr; /* Single-column layout for mobile */
+        margin: 2px;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .user-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .pagination {
+        justify-content: flex-start; /* Align buttons to the start */
+        overflow-x: auto; /* Allow horizontal scrolling */
+        padding: 10px; /* Add padding */
+        white-space: nowrap; /* Prevent line breaks */
+        flex-wrap: wrap;
+    }
+
+    .pagination button {
+        min-width: 40px; /* Set a minimum width for buttons */
+    }
+}

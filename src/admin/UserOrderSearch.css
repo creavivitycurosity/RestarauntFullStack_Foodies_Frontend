@@ -1,0 +1,194 @@
+/* General container for the search orders */
+.order-search-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Search input styling */
+.search-input {
+    padding: 12px;
+    width: 300px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+/* Search buttons */
+.search-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-btn, .clear-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.clear-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.search-btn:hover {
+    background-color: #45a049;
+}
+
+.clear-btn:hover {
+    background-color: #e53935;
+}
+
+/* Orders list container */
+.orders-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Order card */
+.order-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.order-card h3 {
+    color: #007bff;
+    margin: auto 37%;
+    margin-bottom: 30px;
+
+}
+
+.order-items {
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.pagination li {
+    margin: 0 5px; 
+}
+
+.pagination button {
+    padding: 10px 15px;
+    border: 1px solid #007bff;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination .active button {
+    background-color: #007bff;
+    color: white;
+}
+/* SearchOrders.css */
+
+#search-orders-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    padding: 20px;
+    margin: 0 auto; /* Center the container */
+    width: 100%; /* Make sure it takes full width */
+    max-width: 600px; /* Max width for larger screens */
+}
+
+#search-orders-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#search-input {
+    width: 100%; /* Full width for input */
+    max-width: 300px; /* Maximum width */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+}
+
+#search-btn,
+#clear-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#search-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+#clear-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 680px) {
+    #search-orders-title {
+        font-size: 20px; /* Slightly smaller title */
+    }
+
+    #search-input {
+        max-width: 80%; /* Make input wider on smaller screens */
+    }
+
+    #search-btn,
+    #clear-btn {
+        padding: 8px 12px; /* Smaller button padding */
+        font-size: 14px; /* Smaller font size */
+    }
+    .order-card h3{
+        margin: auto 30%;
+        margin-bottom: 27px;
+
+    }
+}

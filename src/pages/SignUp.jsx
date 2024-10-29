@@ -146,7 +146,7 @@ const SignUp = () => {
     <>
       <div style={{ marginTop: "24vh" }}></div>
       <div className="signup-container" style={{ paddingRight: "35px" }}>
-        <h3>Sign Up</h3>
+      <h3>User Sign Up</h3>
         <hr />
         <form className="signup-form" onSubmit={handleSubmit}>
           <div className="form-group">

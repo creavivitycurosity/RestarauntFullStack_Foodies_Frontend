@@ -75,10 +75,10 @@ const SignIn = () => {
     <h1><span>ADMIN CREDENTIALS</span></h1>
     <h1><span>EMAIL - test2@gmail.com</span></h1>
     <h1><span>PASSWORD -  test</span></h1>
-    
-     <div className="signin-container" style={{paddingRight:"35px"}}>
+
+    <div className="signin-container" style={{paddingRight:"35px"}}>
     <div className="signin-header">
-    <h3>User/Admin Sign In</h3>
+      <h3>User/Admin Sign In</h3>
       <hr />
     </div>
     <form className="signin-form" onSubmit={handleSubmit}>

@@ -378,9 +378,16 @@ const SearchResults = ({ addtocart }) => {
   const [searchAttempted, setSearchAttempted] = useState(false); // New state to track search attempts
   const [isLoading, setIsLoading] = useState(false); // 🆕 Loader state
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true); // Loader state
+  const [nameMatchedItems, setNameMatchedItems] = useState([]);
+  const [tagMatchedItems, setTagMatchedItems] = useState([]);
+  const [restaurantMatchedItems, setRestaurantMatchedItems] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1); // Current page for search results
   const [recommendedPage, setRecommendedPage] = useState(1); // Current page for recommended items
+  const [restaurantMatchedPage, setRestaurantMatchedPage] = useState(1); // Page state for restaurant matched items
+  const [matchedPage, setMatchedPage] = useState(1); // Current page for matched items
+
   const itemsPerPage = 3; // Number of items per page
 
   const getPaginatedItems = (items, page) => {
@@ -403,60 +410,16 @@ const SearchResults = ({ addtocart }) => {
     setRecommendedPage(page);
   };
 
+    // Matched Items Pagination
+    const matchedTotalPages = Math.ceil(restaurantMatchedItems.length / itemsPerPage);
+    const paginatedMatchedItems = getPaginatedItems(restaurantMatchedItems, matchedPage);
+
+    const handleMatchedPageChange = (page) => {
+      setMatchedPage(page);
+    };
 
   useEffect(() => {
-    //     async function fetchItems() {
-    //       try {
-    //         // Fetch name-matched items
-    //         const nameResponse = await axios.get(`${BASE_URL}/items/name/${query}`);
-    //         const nameMatchedItems = nameResponse.data.map(item => ({
-    //           id: item.id,
-    //           image: `data:image/jpeg;base64,${item.image}`,
-    //           name: item.name,
-    //           price: item.price,
-    //           restaurantName: item.restaurantName,
-    //           previousAmount: item.previousAmount,
-    //           discountActive: item.discountActive,
-    //           quantity: item.quantity,
-    //         }));
-
-    // setFilteredItems([]);
-    // setItems([]);
-    // setSearchTerm('');
-    // setSelectedRestaurants([]);
-    // setSelectedPrices([]);
-
-
-
-    //         setItems(nameMatchedItems);
-    //         setFilteredItems(nameMatchedItems); // Adjust this depending on your needs
-
-
-
-    //         // Fetch all matched items (by tags and names)
-    //         const searchResponse = await axios.get(`${BASE_URL}/items/searchingjava?query=${query}`);
-    //         const allMatchedItems = searchResponse.data;
-
-    //         // Log the data structures for debugging
-    //         console.log("Name Matched Items:", nameMatchedItems);
-    //         console.log("All Matched Items:", allMatchedItems);
-
-    //         // Filter to get only tag-matched items by excluding name-matched items
-    //         const recommendedItems = allMatchedItems.filter(item => 
-    //           !nameMatchedItems.some(nameItem => nameItem.id === item.itemId) // Exclude name-matched items
-    //         );
-
-    //         // Log recommended items after filtering
-    //         console.log("Recommended Items (Tag Matched):", recommendedItems);
-
-    //         // Now we need to set the name matched items for display
-
-
-    //         setRecommendedItems(recommendedItems); // Set filtered tag-matched items only
-    //       } catch (error) {
-    //         console.error('Error fetching search results:', error);
-    //       }
-    //     }
+    
 
 
     async function fetchItems() {
@@ -487,7 +450,6 @@ const SearchResults = ({ addtocart }) => {
         setSearchTerm('');
         setSelectedRestaurants([]);
         setSelectedPrices([]);
-        setIsLoading(false);  // 🆕 Hide loader after fetch
 
         // Set name matched items
         setItems(nameMatchedItems);
@@ -513,6 +475,8 @@ const SearchResults = ({ addtocart }) => {
 
         // Set filtered tag-matched items only
         setRecommendedItems(recommendedItems);
+        setIsLoading(false);  // 🆕 Hide loader after fetch
+
       } catch (error) {
         setIsLoading(false);  // 🆕 Hide loader after fetch
 
@@ -526,7 +490,41 @@ const SearchResults = ({ addtocart }) => {
   }, [query]);
 
 
+ 
 
+  useEffect(() => {
+    async function fetchItems2() {
+      try {
+        console.log(`Fetching results for query: ${query}`);
+
+        // Fetch categorized data from the API
+        const response = await axios.get(`${BASE_URL}/items/searchingwithheading?query=${query}`);
+        const categorizedResults = response.data;
+
+        // Set Name Matched, Tag Matched, and Restaurants Matched
+        setNameMatchedItems(categorizedResults['Name Matched'] || []);
+        setTagMatchedItems(categorizedResults['Tag Matched'] || []);
+        setRestaurantMatchedItems(categorizedResults['Restaurants Matched'] || []);
+
+        // Log results for debugging
+        console.log('Name Matched:', categorizedResults['Name Matched']);
+        console.log('Tag Matched:', categorizedResults['Tag Matched']);
+        console.log('Restaurants Matched:', categorizedResults['Restaurants Matched']);
+     // Clear previous state
+     setFilteredItems([]);
+     setItems([]);
+     setSearchTerm('');
+     setSelectedRestaurants([]);
+     setSelectedPrices([]);
+        
+      } catch (error) {
+        console.error('Error fetching search results:', error);
+        
+      }
+    }
+
+    fetchItems2();
+  }, [query]);
 
   useEffect(() => {
     let filtered = items;
@@ -618,6 +616,7 @@ const SearchResults = ({ addtocart }) => {
           <h2>Loading items...</h2>
         </div>
       ) : (
+        <>
         <div className="category-items" style={{ display: "flex", flexDirection: "column", marginTop: "20px" }}>
           {paginatedItems.length > 0 ? (
             paginatedItems.map(item => (
@@ -671,7 +670,7 @@ const SearchResults = ({ addtocart }) => {
         </div>
 
 
-      )}
+      
 
       <div className="pagination">
         {Array.from({ length: totalPages }, (_, index) => (
@@ -750,6 +749,46 @@ const SearchResults = ({ addtocart }) => {
       </div>
 
 
+            {/* Restaurants Matched Items */}
+            <h2 style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>Restaurants Matched</h2>
+            <div className="category-items" style={{ display: "flex", flexDirection: "column", marginTop: "20px", }}>
+            {paginatedMatchedItems.length > 0 ? (
+              paginatedMatchedItems.map((item, index) => (
+                <div
+                  key={index}
+                  onClick={() => navigate(`/selle-categories-items/${item.restaurantName}`)}
+                  className="item-card scards"
+                >
+                  <img src={`data:image/jpeg;base64,${item.image}`} alt={item.restaurantName} style={{ width: '300px' }} />
+                  <span>
+                    <h2>{item.restaurantName}</h2>
+                    {/* <h3>Seller: {item.sellerName}</h3> */}
+                    <button
+                  onClick={() => navigate(`/selle-categories-items/${item.restaurantName}`)}
+                  >
+                      VIEW ITEM
+                      </button>
+                  </span>
+                </div>
+              ))
+            ) : (
+              <p>No restaurants found</p>
+            )}
+          </div>
+
+ {/* Pagination for Matched Items */}
+ <div className="pagination">
+        {Array.from({ length: matchedTotalPages }, (_, index) => (
+          <button key={index + 1} onClick={() => handleMatchedPageChange(index + 1)}>
+            {index + 1}
+          </button>
+        ))}
+      </div>
+
+
+
+      </>
+)}
 
     </div>
   );

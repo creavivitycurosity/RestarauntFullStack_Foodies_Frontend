@@ -111,8 +111,9 @@ const SellerItemsDetails = () => {
      <div>
        <h1>Seller Item Details</h1>
        <div className="seller-items-container">
-         {currentItems.map(item => (
-           <div className="item-card" key={item.id}>
+       {currentItems.length > 0 ? (
+          currentItems.map(item => (
+             <div className="item-card" key={item.id} style={{padding:"10px",paddingBottom:"50px",height:"500px"}}>
              <div className="item-card-header">
                <div className="item-name">{item.name}</div>
                <div className="item-price">${item.price}</div>
@@ -156,15 +157,15 @@ const SellerItemsDetails = () => {
                </div>
              </div>
            </div>
-         ))}
+         ))
+         ) : (
+          <div className="no-items-found-div">
+            <h2 className="no-item-text">No items found</h2>
+          </div>
+        )}
        </div>
  
-       {/* Pagination Controls */}
-       {/* <div className="pagination">
-         <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
-         <button onClick={nextPage} disabled={currentPage === Math.ceil(items.length / itemsPerPage)}>Next</button>
-       </div> */}
-       {/* Pagination Controls */}
+    
 <div className="pagination">
   {Array.from({ length: Math.ceil(items.length / itemsPerPage) }, (_, index) => (
     <button

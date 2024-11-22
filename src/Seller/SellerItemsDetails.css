@@ -13,7 +13,9 @@ h1 {
   color: #007bff;
   margin-bottom: 20px;
 }
-
+.no-items-found-div .no-item-text{
+  text-align: end;
+}
 /* Grid layout for 2x2 cards */
 .seller-items-container {
   display: grid;
@@ -108,5 +110,8 @@ h1 {
   .seller-items-container {
     grid-template-columns: 1fr; /* 1 column for small screens */
     padding-left: 1px;
+  }
+  .no-items-found-div .no-item-text{
+    text-align: center;
   }
 }

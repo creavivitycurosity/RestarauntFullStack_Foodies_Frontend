@@ -589,6 +589,7 @@ const Navbar = ({ cart, setRole }) => {
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [items, setItems] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // For suggestions dropdown
+  const [categorizedSuggestions, setCategorizedSuggestions] = useState({});
 
   const debouncedQuery = useDebounce(searchQuery, 300);
   const dropdownRef = useRef(null);
@@ -598,16 +599,18 @@ const Navbar = ({ cart, setRole }) => {
   useEffect(() => {
     if (debouncedQuery) {
       console.log(`Fetching suggestions for query: ${debouncedQuery}`);
-      axios.get(`${BASE_URL}/items/searchingjava?query=${debouncedQuery}`)
-        .then(response => {
+      axios
+        .get(`${BASE_URL}/items/searchingwithheading?query=${debouncedQuery}`)
+        .then((response) => {
           console.log('Suggestions fetched:', response.data);
-          setSuggestions(response.data);
+
+          setCategorizedSuggestions(response.data);
         })
-        .catch(error => {
+        .catch((error) => {
           console.error('Error fetching suggestions:', error);
         });
     } else {
-      setSuggestions([]);
+      setCategorizedSuggestions({});
     }
   }, [debouncedQuery]);
 
@@ -667,8 +670,12 @@ const Navbar = ({ cart, setRole }) => {
   const handleSuggestionClick = (suggestion) => {
     if (suggestion.seller) {
       navigate(`/selle-categories-items/${suggestion.restaurantName}`);  // Navigate to seller's page
+          setSearchQuery('')
+
     } else {
       navigate(`/item/${suggestion.itemId}`);  // Navigate to item details
+          setSearchQuery('')
+
     }
     setSuggestions([]);
   };
@@ -689,9 +696,10 @@ const Navbar = ({ cart, setRole }) => {
 
   const handleSearch = () => {
     navigate(`/search-results/${searchQuery}`);
+    
     console.log("search",)
     setSuggestions([]);
-
+    setSearchQuery('')
   };
 
 
@@ -746,6 +754,54 @@ const Navbar = ({ cart, setRole }) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [dropdownRef]);
+  console.log('Fetched Suggestions:', suggestions);
+  const sortedSuggestions2 = [...suggestions].map((suggestion) => {
+    const queryLower = debouncedQuery.toLowerCase();
+  
+    // Determine priority level for each suggestion
+    const isNameStartsWith = suggestion.name?.toLowerCase().startsWith(queryLower);
+    const hasTag = suggestion.tags?.some((tag) => tag.toLowerCase().startsWith(queryLower)) || false;
+    const isSellerStartsWith = suggestion.seller === true && suggestion.restaurantName?.toLowerCase().startsWith(queryLower);
+  
+    // Assign priority levels:
+    // 1: Name starts with the query
+    // 2: Tags match the query
+    // 3: Seller with restaurantName match
+    let priority = 999; // Default low priority
+    if (isNameStartsWith) priority = 1;
+    else if (hasTag) priority = 2;
+    else if (isSellerStartsWith) priority = 3;
+  
+    return { ...suggestion, priority };
+  }).sort((a, b) => {
+    // Sort by priority level
+    if (a.priority !== b.priority) return a.priority - b.priority;
+  
+    // If priority is the same, retain original order
+    return 0;
+  });
+  
+  // console.log('Sorted Suggestions:', sortedSuggestions);
+
+
+const sortedSuggestions = Object.entries(categorizedSuggestions).flatMap(([category, suggestions]) => {
+  return suggestions.map((suggestion) => {
+    // Include category as part of each suggestion for easy rendering
+    return { ...suggestion, category };
+  });
+});
+
+
+  
+  
+
+
+
+
+
+
+  
+  
 
   return (
     <nav className='nav-nav'>
@@ -788,45 +844,65 @@ const Navbar = ({ cart, setRole }) => {
               {/* <span className="icon">🔍</span> */}
               <button style={{ marginRight: "0px", left: "1px", top: "0px", height: "40px" }} id='search-btn2' className="btn btn-outline-success btext" type="submit" onClick={() => setIsMenuOpen(false)}><b> Search</b></button>
             </form>
-            {suggestions.length > 0 && (
-              <ul className="suggestions" ref={dropdownRef}>
-                {suggestions.map((suggestion, index) => (
-                  <li key={index} onClick={() => handleSuggestionClick(suggestion)} onTouchStart={() => handleSuggestionClick(suggestion)} // Ensure it works on mobile
-                  >
-                    {suggestion.image && <img src={`data:image/jpeg;base64,${suggestion.image}`} alt={suggestion.name} className='simage' />}
-                    <div>
-                      <h3>{highlightMatch(suggestion.name, debouncedQuery)}</h3>
-                      <h5>{suggestion.seller ? "Seller" : suggestion.restaurantName}</h5>
 
-
-                      <h3>
-                        {!suggestion.seller && (
-                          <>
-                            Price:
-                            {suggestion.price !== null && suggestion.price !== undefined && !suggestion.discountActive ? (
-                              <span>₹{suggestion.price}</span>
-                            ) : (
-                              <span></span>
-                            )}
-                            {suggestion.discountActive && (
-                              <>
-                                <span style={{ textDecoration: suggestion.discountActive ? 'line-through' : 'none' }}>
-                                  ₹{suggestion.previousAmount}
-                                </span>
-                                <span style={{ display: 'block', color: 'red' }}>₹{suggestion.price}</span>
-                              </>
-                            )}
-                          </>
-                        )}
-                      </h3>
-
-
-
-                    </div>
-                  </li>
-                ))}
-              </ul>
+            {sortedSuggestions.length > 0 && (
+  <ul className="suggestions" ref={dropdownRef}>
+    {Object.entries(
+      sortedSuggestions.reduce((acc, suggestion) => {
+        // Use the `category` field directly
+        const { category } = suggestion;
+        if (!acc[category]) acc[category] = [];
+        acc[category].push(suggestion);
+        return acc;
+      }, {})
+    ).map(([category, suggestions]) => (
+      <React.Fragment key={category}>
+        {/* Render category title */}
+        <li className="category-title">{category}</li>
+        {/* Render suggestions under this category */}
+        {suggestions.map((suggestion, index) => (
+          <li
+            key={`${category}-${index}`}
+            onClick={() => handleSuggestionClick(suggestion)}
+            onTouchStart={() => handleSuggestionClick(suggestion)}
+          >
+            {suggestion.image && (
+              <img
+                src={`data:image/jpeg;base64,${suggestion.image}`}
+                alt={suggestion.name || suggestion.restaurantName}
+                className="simage"
+              />
             )}
+            <div>
+              <h3>
+                {highlightMatch(suggestion.name || suggestion.restaurantName, debouncedQuery)}
+              </h3>
+              <h5>{suggestion.seller ? 'Restaurant' : suggestion.restaurantName}</h5>
+              {!suggestion.seller && suggestion.price !== undefined && (
+                <h3>
+                  Price:
+                  {!suggestion.discountActive ? (
+                    <span>₹{suggestion.price}</span>
+                  ) : (
+                    <>
+                      <span style={{ textDecoration: 'line-through' }}>
+                        ₹{suggestion.previousAmount}
+                      </span>
+                      <span style={{ color: 'red' }}>₹{suggestion.price}</span>
+                    </>
+                  )}
+                </h3>
+              )}
+            </div>
+          </li>
+        ))}
+      </React.Fragment>
+    ))}
+  </ul>
+)}
+
+
+
           </div>
 
         </div>
@@ -947,40 +1023,64 @@ const Navbar = ({ cart, setRole }) => {
               {/* {searchQuery.length === 0 && <FaSearch className='ss' />} */}
               <button className="btn btn-outline-success btext" type="submit" onClick={() => setIsMenuOpen(false)}><b> Search</b></button>
             </form>
-            {suggestions.length > 0 && (
-              <ul className="suggestions" ref={dropdownRef}>
-                {suggestions.map((suggestion, index) => (
-                  <li key={index} onClick={() => handleSuggestionClick(suggestion)} onTouchStart={() => handleSuggestionClick(suggestion)} // Ensure it works on mobile
-                  >
-                    {suggestion.image && <img src={`data:image/jpeg;base64,${suggestion.image}`} alt={suggestion.name} className='simage' />}
-                    <div>
-                      <h3>{highlightMatch(suggestion.name, debouncedQuery)}</h3>
-                      <h5>{suggestion.seller ? "Seller" : suggestion.restaurantName}</h5>
-                      <h3>
-                        {!suggestion.seller && (
-                          <>
-                            Price:
-                            {suggestion.price !== null && suggestion.price !== undefined && !suggestion.discountActive ? (
-                              <span>₹{suggestion.price}</span>
-                            ) : (
-                              <span></span>
-                            )}
-                            {suggestion.discountActive && (
-                              <>
-                                <span style={{ textDecoration: suggestion.discountActive ? 'line-through' : 'none' }}>
-                                  ₹{suggestion.previousAmount}
-                                </span>
-                                <span style={{ display: 'block', color: 'red' }}>₹{suggestion.price}</span>
-                              </>
-                            )}
-                          </>
-                        )}
-                      </h3>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+
+            {sortedSuggestions.length > 0 && (
+  <ul className="suggestions" ref={dropdownRef}>
+    {Object.entries(
+      sortedSuggestions.reduce((acc, suggestion) => {
+        // Use the `category` field directly
+        const { category } = suggestion;
+        if (!acc[category]) acc[category] = [];
+        acc[category].push(suggestion);
+        return acc;
+      }, {})
+    ).map(([category, suggestions]) => (
+      <React.Fragment key={category}>
+        {/* Render category title */}
+        <li className="category-title">{category}</li>
+        {/* Render suggestions under this category */}
+        {suggestions.map((suggestion, index) => (
+          <li
+            key={`${category}-${index}`}
+            onClick={() => handleSuggestionClick(suggestion)}
+            onTouchStart={() => handleSuggestionClick(suggestion)}
+          >
+            {suggestion.image && (
+              <img
+                src={`data:image/jpeg;base64,${suggestion.image}`}
+                alt={suggestion.name || suggestion.restaurantName}
+                className="simage"
+              />
             )}
+            <div>
+              <h3>
+                {highlightMatch(suggestion.name || suggestion.restaurantName, debouncedQuery)}
+              </h3>
+              <h5>{suggestion.seller ? 'Restaurant' : suggestion.restaurantName}</h5>
+              {!suggestion.seller && suggestion.price !== undefined && (
+                <h3>
+                  Price:
+                  {!suggestion.discountActive ? (
+                    <span>₹{suggestion.price}</span>
+                  ) : (
+                    <>
+                      <span style={{ textDecoration: 'line-through' }}>
+                        ₹{suggestion.previousAmount}
+                      </span>
+                      <span style={{ color: 'red' }}>₹{suggestion.price}</span>
+                    </>
+                  )}
+                </h3>
+              )}
+            </div>
+          </li>
+        ))}
+      </React.Fragment>
+    ))}
+  </ul>
+)}
+
+
           </div>
         </li>
 

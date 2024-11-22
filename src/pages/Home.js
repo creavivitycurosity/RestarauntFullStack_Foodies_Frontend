@@ -239,6 +239,8 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { getAllItems } from '../api'; // Adjust the import path if needed
 import DiscountedItemsSlider from '../Components/DiscountedItemsSlider'; // Import the new component
 import OfferedItemsAndCategories from '../Components/OfferedItemsAndCategories';
+import SliderPage from '../admin/SliderPage';
+import AdminPage from '../admin/AdminPage';
 
 const CACHE_KEY = 'dishesCache';
 const CACHE_EXPIRATION = 2 * 60 * 1000; // 5 minutes cache expiration
@@ -253,9 +255,21 @@ function Home({ addtocart }) {
   const [currentPage, setCurrentPage] = useState(1); // 🆕 Pagination state
   const [dishesPerPage] = useState(8);
 
+  const [showInitialMessage, setShowInitialMessage] = useState(!sessionStorage.getItem('messageShown'));
+
+  // Add this useEffect at the very beginning of your component
+  useEffect(() => {
+    if (!sessionStorage.getItem('messageShown')) {
+      sessionStorage.setItem('messageShown', 'true');
+    }
+  }, []); // Empty dependency array means this runs once when component mounts
+
+
+
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
+
   }, []);
 
 
@@ -474,20 +488,28 @@ function Home({ addtocart }) {
         <div className='text22'>
           <h2>WELCOME TO YOUR FOOD HEAVEN</h2>
         </div>
+        
+        {/* <SliderPage/> */}    
       </div>
 
       {loading ? (
         <div className="loader-container">
           <div className="loader"></div>
+          {showInitialMessage && (
+            <>
+          <h4>Please wait initial 2 minutes for server to start</h4>
+          <h4>because my server goes down if it is idle for 15 minutes</h4>
+          <h4>once the server is started you get super fast responses</h4>
+          <h4>I appreciate your patience. Trust me, it's worth your wait</h4>
+          </>
+          )}
         </div>
       ) : (
         <>
           <div className='cards212 c212'>
             {currentDishes.map((dish) => (
               <div className='cards-img2' key={dish.id}>
-
                 <img src={dish.image} alt={dish.name} onClick={() => navigate(`/item/${dish.id}`)} />
-
                 {/* <LazyLoadImage
                   src={dish.image}
                   alt={dish.name}
@@ -607,6 +629,10 @@ function Home({ addtocart }) {
       )}
       {/* <Footer /> */}
       {/* <OfferedItemsAndCategories/> */}
+
+
+      {/* <SliderPage/> */}
+      {/* <AdminPage/> */}
     </>
   );
 }

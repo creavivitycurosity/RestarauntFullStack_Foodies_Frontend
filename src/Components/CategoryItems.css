@@ -89,10 +89,23 @@
     padding: 5px 10px;
     font-size: 12px;
     font-weight: bold;
-    z-index: 10; /* High z-index to stay on top */
+    /* z-index: 1; */
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .css-1dyz3mf {
+    display: flex !important; /* Ensure it's a flex container */
+    flex-wrap: nowrap !important; /* Prevent wrapping */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+
+  }
+
+  .css-1nmdiq5-menu{
+
+    z-index: 2000;
+    position: absolute;
   }
   /* Mobile styles for CategoryItems */
 @media (max-width: 768px) {

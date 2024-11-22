@@ -256,6 +256,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './AdminHomePage.css';
 import Footer from '../pages/Footer';
+import AdminPage from './AdminPage';
 
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
@@ -442,7 +443,7 @@ const AdminHomePage = () => {
     <>
       <div>
         <h2>MULTI FILTERS</h2>
-        <p>{message}</p>
+        {/* <p>{message}</p> */}
 
 
 
@@ -606,6 +607,8 @@ const AdminHomePage = () => {
 
         </>
       )}
+
+      {/* <AdminPage/> */}
 
 
     </>

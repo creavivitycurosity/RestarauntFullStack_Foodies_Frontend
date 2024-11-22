@@ -923,9 +923,9 @@ const SellerItems = () => {
     <>
       <SellerImage />
       <div>
-        <h2>Your Items</h2>
+        {/* <h2>Your Items</h2> */}
         <h2>MULTI FILTERS</h2>
-        <h3>{message}</h3>
+        {/* <h3>{message}</h3> */}
 
         {/* Filters Container */}
         <div className="filter-container0" >
@@ -1117,7 +1117,7 @@ const SellerItems = () => {
                         background: 'red',
                         color: 'white',
                         borderRadius: '50%',
-                        width: '30px',
+                        width: '40px',
                         height: '30px',
                         display: 'flex',
                         alignItems: 'center',

@@ -900,7 +900,7 @@ const ItemDetails = ({ addtocart }) => {
           </h3>
           <h3>Seller: <span>{item.restaurantName}</span></h3>
 
-          {item.quantity === 0 ? (
+          {item.quantity === 0 || !item.available? (
             <button className={styles.outOfStockr} disabled>
               Out of Stock
             </button>

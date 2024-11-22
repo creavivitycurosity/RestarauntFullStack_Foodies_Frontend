@@ -83,11 +83,10 @@
   
   /* Ensure the arrow buttons are aligned correctly */
   .custom-prev, .custom-next {
-    display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     line-height: 40px;
   }
 /* Media query for mobile devices */

@@ -85,6 +85,7 @@ import AddReview from './pages/AddReview';
 import ViewReview from './pages/ViewReview';
 import RefundProgress from './pages/RefundProgress';
 import RefundPrigressSeller from './Seller/RefundPrigressSeller';
+import ComparePage from './pages/ComparePage';
 
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
@@ -238,6 +239,8 @@ const App = () => {
           <Route path="/add-review/:itemId" element={<AddReview/>} />
           <Route path="/view-review/:itemId" element={<ViewReview />} />
           <Route path="/RefundProgress/:itemId" element={<RefundProgress />} />
+          <Route path="/compare/:itemId" element={<ComparePage />} />
+
 
           {/* <Route path="/search-results" element={<SearchResults addtocart={addtocart} />} /> */}
 

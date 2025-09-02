@@ -170,7 +170,11 @@ const CategoryItems = ({ addtocart }) => {
   const priceOptions = [
     { value: 100, label: 'Below ₹100' },
     { value: 200, label: 'Below ₹200' },
+    { value: 300, label: 'Below ₹300' },
+    { value: 400, label: 'Below ₹400' },
     { value: 500, label: 'Below ₹500' },
+    { value: 600, label: 'Below ₹600' },
+
   ];
 
   const discountOptions = [

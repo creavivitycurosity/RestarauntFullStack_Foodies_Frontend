@@ -493,16 +493,52 @@ function Home({ addtocart }) {
       </div>
 
       {loading ? (
-        <div className="loader-container">
+        <div className="loader-container-home">
           <div className="loader"></div>
           {showInitialMessage && (
             <>
+          <h4>Developed by Revanth Battula</h4>
           <h4>Please wait initial 2 minutes for server to start</h4>
           <h4>because my server goes down if it is idle for 15 minutes</h4>
           <h4>once the server is started you get super fast responses</h4>
           <h4>I appreciate your patience. Trust me, it's worth your wait</h4>
-          </>
+         
+
+
+
+<div className="loading-screenshots">
+  <p>If you’d rather jump straight to the output screenshots pdf while this loads, click below:</p>
+  <div className="btn-group">
+    <a
+      href="https://drive.google.com/file/d/1tlXosYCLJMdvrEJQovVgOkoxp5737pKt/view?usp=drivesdk"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-pdf"
+    >
+      Mobile View
+    </a>
+    <a
+      href="https://drive.google.com/file/d/1tm5rAf2E7E8uLuiksD9Fs9kEOl8TJQq3/view?usp=drivesdk"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-pdf"
+    >
+      Desktop View
+    </a>
+  </div>
+</div>
+
+
+
+
+
+</>
           )}
+
+
+
+
+
         </div>
       ) : (
         <>

@@ -792,10 +792,37 @@ const sortedSuggestions = Object.entries(categorizedSuggestions).flatMap(([categ
 });
 
 
+// Updated handleHover function – place this inside your component
+const handleHover = (categoryId, event) => {
+  const categoryItem = event.currentTarget;
+  const rect = categoryItem.getBoundingClientRect();
+  // Compute the top and left coordinates relative to the viewport:
+  const submenuTop = rect.top;             // top edge of the category item
+  const submenuLeft = rect.right - 10;
   
+  // Set CSS variables on the category item element
+  categoryItem.style.setProperty('--submenu-top', `${submenuTop}px`);
+  categoryItem.style.setProperty('--submenu-left', `${submenuLeft}px`);
   
+  setHoveredCategory(categoryId);
+};
 
 
+const searchContainerRef = useRef(null);
+
+useEffect(() => {
+  const handleClickOutside = (event) => {
+    // Close suggestions if clicking outside the search container
+    if (searchContainerRef.current && !searchContainerRef.current.contains(event.target)) {
+      setSuggestions([]);
+    }
+  };
+
+  document.addEventListener('mousedown', handleClickOutside);
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+  };
+}, []);
 
 
 
@@ -930,65 +957,44 @@ const sortedSuggestions = Object.entries(categorizedSuggestions).flatMap(([categ
         </li>
 
 
+        <li className="dropdowns-z2 menuu">
+  <Link to="/">
+    <FaList /> &nbsp;MENU LIST
+  </Link>
+  <div className="dropdown-contents-z2">
+    {categories.map(category => (
+      <div
+  key={category.id}
+  onClick={(e) => {
+    e.stopPropagation();
+    navigate(`/category/${category.id}`);
+  }}
+  className="category-itemss-z2"
+  onMouseEnter={(e) => handleHover(category.id, e)}
+  onMouseLeave={() => setHoveredCategory(null)}
+>
+  {category.name.toUpperCase()}
+  {hoveredCategory === category.id && (
+    <div className="sub-dropdown-contents-z2">
+      {items.map(item => (
+        <div
+          key={item.id}
+          onClick={(e) => {
+            e.stopPropagation();
+            setHoveredCategory(null);
+            navigate(`/search-results/${item.name}`, { replace: true });
+          }}
+        >
+          {item.name.toUpperCase()}
+        </div>
+      ))}
+    </div>
+  )}
+</div>
 
-
-
-
-        <li className="dropdowns menuu" >
-          <Link to='/'>
-            <FaList />  &nbsp;MENU LIST
-          </Link>
-          <div className="dropdown-contents" >
-            {categories.map(category => (
-              <div key={category.id}
-                onClick={(e) => {
-                  e.stopPropagation(); // Add this line
-                  navigate(`/category/${category.id}`);
-                }}
-                className="category-itemss"
-                onMouseEnter={() => {
-                  console.log(`Hovered over category: ${category.name}`);
-                  setHoveredCategory(category.id);
-                }}
-                onMouseLeave={() => {
-                  console.log(`Mouse left category: ${category.name}`);
-                  setHoveredCategory(null);
-                }}
-              >
-                {category.name.toUpperCase()}
-                {hoveredCategory === category.id && (
-                  <div className="sub-dropdown-contents" style={{ maxHeight: "400px", overflow: "hidden", overflowY: "auto" }}>
-                    {items.map(item => (
-                      <div key={item.id} onClick={(e) => {
-                        e.stopPropagation(); // Add this line
-                        console.log(`Clicked on item: ${item.name}`);
-                        setHoveredCategory(null);
-                        navigate(`/search-results/${item.name}`, { replace: true });
-                      }}>
-                        {item.name.toUpperCase()}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    ))}
+  </div>
+</li>
 
 
 
@@ -1008,21 +1014,21 @@ const sortedSuggestions = Object.entries(categorizedSuggestions).flatMap(([categ
           </Link>
         </li>
         <li>
-          <div className="search-container">
-            <form className="d-flex" role="search" onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
-              <input
-                className="form-control me-2 sa"
-                type="search"
-                size={40}
-                placeholder="Search"
-                aria-label="Search"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-
-              />
-              {/* {searchQuery.length === 0 && <FaSearch className='ss' />} */}
-              <button className="btn btn-outline-success btext" type="submit" onClick={() => setIsMenuOpen(false)}><b> Search</b></button>
-            </form>
+        <div className="search-container" ref={searchContainerRef}>
+    <form className="d-flex" role="search" onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
+      <input
+        className="form-control me-2 sa"
+        type="search"
+        size={40}
+        placeholder="Search"
+        aria-label="Search"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+      <button className="btn btn-outline-success btext" type="submit" onClick={() => setIsMenuOpen(false)}>
+        <b>Search</b>
+      </button>
+    </form>
 
             {sortedSuggestions.length > 0 && (
   <ul className="suggestions" ref={dropdownRef}>

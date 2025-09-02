@@ -899,8 +899,8 @@ const ItemDetails = ({ addtocart }) => {
             )}
           </h3>
           <h3>Seller: <span>{item.restaurantName}</span></h3>
-
-          {item.quantity === 0 || !item.available? (
+<br/>
+          {item.quantity === 0 || !item.available ? (
             <button className={styles.outOfStockr} disabled>
               Out of Stock
             </button>
@@ -909,6 +909,7 @@ const ItemDetails = ({ addtocart }) => {
               <button onClick={() => addtocart(item)} className={styles.addToCartr}>
                 ADD TO CART
               </button>
+              <br/> <br/>
               {item.quantity < 10 && <h3>Only {item.quantity} left in stock!</h3>}
             </div>
           )}
@@ -917,9 +918,18 @@ const ItemDetails = ({ addtocart }) => {
             <button className={styles.favoriteBtnr} onClick={() => toggleFavorite(item.id)}>
               {favorites.includes(item.id) ? "Remove from Favorites" : "Add to Favorites"}
             </button>
-          )}
+          )}<br/><br/>
+          <button
+            style={{backgroundColor:"lightcoral"}}
+            className={styles.compareBtn}
+            onClick={() => navigate(`/compare/${item.id}`)}
+          >
+            Compare
+          </button>
 
+          <br/>
           <CartAlert show={showAlert} itemName={item.name} onClose={() => setShowAlert(false)} name={alertName} />
+          <br/>
           <h3>Description :</h3>
           <p className={styles.itemDescriptionr}>
             {item.description || "No description available for this item."}

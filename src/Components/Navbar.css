@@ -689,6 +689,157 @@ width: 150%;
 }
 
 
+/* Global Variables */
+:root {
+  --primary-color: #0984e3;
+  --secondary-color: #2d3436;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --card-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --border-radius: 1rem;
+  --transition-duration: 0.3s;
+}
+
+/* Dropdown parent */
+.dropdowns-z2 {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+/* Main dropdown menu */
+.dropdown-contents-z2 {
+  position: absolute;
+  top: 100%;    /* directly below the trigger */
+  left: 0;
+  background: #fff;
+  min-width: 250px;
+  max-height: 55vh;  /* fixed max height for vertical scrolling */
+  overflow-y: auto;
+  overflow-x: hidden;  /* no horizontal scroll */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  direction: rtl; /* Move scrollbar to the left */
+
+}
+
+/* Show main dropdown on hover */
+.dropdowns-z2:hover .dropdown-contents-z2 {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Category items inside dropdown */
+.category-itemss-z2 {
+  padding: 22px 30px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  position: relative;  /* reference for sub-dropdown positioning */
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.category-itemss-z2:hover {
+  background-color: #eee;
+}
+
+/* Sub-dropdown container using fixed positioning and CSS variables */
+.sub-dropdown-contents-z2 {
+  position: fixed;  /* fixed positioning relative to viewport */
+  top: var(--submenu-top);    /* should be set via JS on hover */
+  left: var(--submenu-left);  /* should be set via JS on hover */
+  background: #fff;
+  min-width: 250px;
+  max-height: 35vh;    /* fixed max height with vertical scrolling */
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+/* Reveal sub-dropdown when hovering over the category item */
+.category-itemss-z2:hover > .sub-dropdown-contents-z2 {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sub-dropdown-contents-z2 div{
+ padding: 20px 30px;
+
+}
+
+.sub-dropdown-contents-z2 div:hover 
+{
+  transition: opacity 0.3s ease;
+color: white;
+border-radius: 10px;
+background-color: #6e6b6b;
+
+}
+
+/* Custom Scrollbar for WebKit browsers (Chrome, Safari) */
+.dropdown-contents-z2::-webkit-scrollbar,
+.sub-dropdown-contents-z2::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.dropdown-contents-z2::-webkit-scrollbar-track,
+.sub-dropdown-contents-z2::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+.dropdown-contents-z2::-webkit-scrollbar-thumb,
+.sub-dropdown-contents-z2::-webkit-scrollbar-thumb {
+  background: #0984e3; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+/* Optional: Add a hover effect for the scrollbar thumb */
+.dropdown-contents-z2::-webkit-scrollbar-thumb:hover,
+.sub-dropdown-contents-z2::-webkit-scrollbar-thumb:hover {
+  background: #0a6ebd; /* Darker color on hover */
+}
+
+/* Custom Scrollbar for Firefox */
+.dropdown-contents-z2 {
+  scrollbar-width: thin; /* Makes the scrollbar thinner */
+  scrollbar-color: #0984e3 #f1f1f1; /* Thumb color and track color */
+}
+
+.sub-dropdown-contents-z2 {
+  scrollbar-width: thin; /* Makes the scrollbar thinner */
+  scrollbar-color: #0984e3 #f1f1f1; /* Thumb color and track color */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Mobile view */
 @media (max-width: 768px) {
   .menu-icon {
@@ -770,6 +921,10 @@ width: 150%;
     width: 100vw !important;
     margin: 0 auto !important; /* This will center the second item */
 
+  }
+  .dropdowns-z2{
+    display: none;
+    visibility: hidden;
   }
 }
 @media (max-width: 1699px) and (min-width: 1200px) {
@@ -865,6 +1020,11 @@ font-size: 13px;
   .dropdowns{
     display: none !important;
   }
+
+  .dropdowns-z2{
+    display: none;
+    visibility: hidden;
+  }
 }
 
 @media (max-width:799px ) and (min-width: 769px) {
@@ -894,6 +1054,11 @@ font-size: 13px;
 
   .dropdowns{
     display: none !important;
+  }
+
+  .dropdowns-z2{
+    display: none;
+    visibility: hidden;
   }
 
 }

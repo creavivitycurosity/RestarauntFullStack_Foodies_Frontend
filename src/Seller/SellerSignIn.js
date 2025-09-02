@@ -36,6 +36,7 @@ const SellerSignIn = ({ setToken }) => {
 
   return (
     <div style={{ marginTop: "24vh" }} className="signin-container" >
+      <h1>Seller Signin</h1>
       <form onSubmit={handleSignIn} className="signin-form" style={{paddingRight:"20px"}}>
       <div className="form-group">
         <label htmlFor="email">E-MAIL</label>

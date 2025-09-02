@@ -356,8 +356,6 @@
 
 // export default SearchResults;
 
-
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -410,22 +408,18 @@ const SearchResults = ({ addtocart }) => {
     setRecommendedPage(page);
   };
 
-    // Matched Items Pagination
-    const matchedTotalPages = Math.ceil(restaurantMatchedItems.length / itemsPerPage);
-    const paginatedMatchedItems = getPaginatedItems(restaurantMatchedItems, matchedPage);
+  // Matched Items Pagination
+  const matchedTotalPages = Math.ceil(restaurantMatchedItems.length / itemsPerPage);
+  const paginatedMatchedItems = getPaginatedItems(restaurantMatchedItems, matchedPage);
 
-    const handleMatchedPageChange = (page) => {
-      setMatchedPage(page);
-    };
+  const handleMatchedPageChange = (page) => {
+    setMatchedPage(page);
+  };
 
   useEffect(() => {
-    
-
-
     async function fetchItems() {
       try {
-        setIsLoading(true);  // 🆕 Show loader before fetch
-        console.log(query)
+        setIsLoading(true); // Show loader before fetch
 
         // Fetch name-matched items
         const nameResponse = await axios.get(`${BASE_URL}/items/name/${query}`);
@@ -441,27 +435,11 @@ const SearchResults = ({ addtocart }) => {
             discountActive: item.discountActive,
             quantity: item.quantity,
             available: item.available,
-
           }));
-
-        // Clear previous state
-        setFilteredItems([]);
-        setItems([]);
-        setSearchTerm('');
-        setSelectedRestaurants([]);
-        setSelectedPrices([]);
-
-        // Set name matched items
-        setItems(nameMatchedItems);
-        setFilteredItems(nameMatchedItems);
 
         // Fetch all matched items (by tags and names)
         const searchResponse = await axios.get(`${BASE_URL}/items/searchingjava?query=${query}`);
         const allMatchedItems = searchResponse.data;
-
-        // Log the data structures for debugging
-        console.log("Name Matched Items:", nameMatchedItems);
-        console.log("All Matched Items:", allMatchedItems);
 
         // Filter to get only tag-matched items by excluding name-matched items
         const recommendedItems = allMatchedItems.filter(item =>
@@ -470,60 +448,31 @@ const SearchResults = ({ addtocart }) => {
           !item.seller // Exclude sellers
         );
 
-        // Log recommended items after filtering
-        console.log("Recommended Items (Tag Matched):", recommendedItems);
-
-        // Set filtered tag-matched items only
-        setRecommendedItems(recommendedItems);
-        setIsLoading(false);  // 🆕 Hide loader after fetch
-
-      } catch (error) {
-        setIsLoading(false);  // 🆕 Hide loader after fetch
-
-        console.error('Error fetching search results:', error);
-      }
-    }
-
-
-
-    fetchItems();
-  }, [query]);
-
-
- 
-
-  useEffect(() => {
-    async function fetchItems2() {
-      try {
-        console.log(`Fetching results for query: ${query}`);
-
-        // Fetch categorized data from the API
-        const response = await axios.get(`${BASE_URL}/items/searchingwithheading?query=${query}`);
-        const categorizedResults = response.data;
+        // Fetch categorized data from another API
+        const categorizedResponse = await axios.get(`${BASE_URL}/items/searchingwithheading?query=${query}`);
+        const categorizedResults = categorizedResponse.data;
 
         // Set Name Matched, Tag Matched, and Restaurants Matched
         setNameMatchedItems(categorizedResults['Name Matched'] || []);
         setTagMatchedItems(categorizedResults['Tag Matched'] || []);
         setRestaurantMatchedItems(categorizedResults['Restaurants Matched'] || []);
 
-        // Log results for debugging
-        console.log('Name Matched:', categorizedResults['Name Matched']);
-        console.log('Tag Matched:', categorizedResults['Tag Matched']);
-        console.log('Restaurants Matched:', categorizedResults['Restaurants Matched']);
-     // Clear previous state
-     setFilteredItems([]);
-     setItems([]);
-     setSearchTerm('');
-     setSelectedRestaurants([]);
-     setSelectedPrices([]);
-        
+        // Clear previous states before setting new ones
+        setFilteredItems(nameMatchedItems);
+        setItems(nameMatchedItems);
+        setSearchTerm(query);
+        setSelectedRestaurants([]);
+        setSelectedPrices([]);
+        setRecommendedItems(recommendedItems);
+
+        setIsLoading(false); // Hide loader after fetch
       } catch (error) {
+        setIsLoading(false); // Hide loader after fetch
         console.error('Error fetching search results:', error);
-        
       }
     }
 
-    fetchItems2();
+    fetchItems();
   }, [query]);
 
   useEffect(() => {
@@ -567,10 +516,9 @@ const SearchResults = ({ addtocart }) => {
     { value: 'non-discount', label: 'Non-Discounted' },
   ];
 
-
   const handleAddToCart = (item) => {
     addtocart(item);
-    console.log(item)
+    console.log(item);
   };
 
   return (

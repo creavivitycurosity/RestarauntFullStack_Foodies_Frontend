@@ -49,6 +49,8 @@ const SellerSignUp = () => {
 
   return (
     <div style={{ marginTop: "24vh" }} className="signup-container">
+            <h1>Seller Signup</h1>
+
       <form onSubmit={handleSignUp} className="signup-form" style={{ paddingRight: "20px" }}>
         
         <div className="form-group">
